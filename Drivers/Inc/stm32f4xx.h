@@ -101,5 +101,6 @@ typedef struct
 #define UART5_CLK_EN()			(RCC->APB1ENR)|= (1<<20)
 /*----------------------------------------------------------------------------------------------------*/
 
-
+/*Includes*/
+#include "stm32f4xx_usart.h"
 #endif /* STM32F4XX_H_ */
