@@ -92,12 +92,13 @@ typedef struct
 
 /*----------------------------------------------------------------------------------------------------*/
 /*Peripheral Clock Enabling*/
-#define USART1_CLK_EN()
-#define USART2_CLK_EN()
-#define USART3_CLK_EN()
-#define USART6_CLK_EN()
-#define UART4_CLK_EN()
-#define UART5_CLK_EN()
+/*1. USART Clocks*/
+#define USART1_CLK_EN()			(RCC->APB2ENR |= (1<<4))
+#define USART2_CLK_EN()			(RCC->APB1ENR)|= (1<<17)
+#define USART3_CLK_EN()			(RCC->APB1ENR)|= (1<<18)
+#define USART6_CLK_EN()			(RCC->APB2ENR |= (1<<5))
+#define UART4_CLK_EN()			(RCC->APB1ENR)|= (1<<19)
+#define UART5_CLK_EN()			(RCC->APB1ENR)|= (1<<20)
 /*----------------------------------------------------------------------------------------------------*/
 
 
