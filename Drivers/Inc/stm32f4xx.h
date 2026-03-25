@@ -23,7 +23,7 @@ typedef struct
 	__vo uint32_t USART_GTPR;
 }USART_RegDef_t;
 
-/*RCC Register Definitions*/
+/*------------------------- RCC Register Definitions ----------------------------------*/
 typedef struct
 {
 	__vo uint32_t CR;
@@ -64,6 +64,20 @@ typedef struct
 	__vo uint32_t DCKCFGR;
 }RCC_RegDef_t;
 
+/*------------------------- I2C Register Configurations ----------------------------------*/
+typedef struct i2cRegisters
+{
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+	__vo uint32_t OAR1;
+	__vo uint32_t OAR2;
+	__vo uint32_t DR;
+	__vo uint32_t SR1;
+	__vo uint32_t SR2;
+	__vo uint32_t CCR;
+	__vo uint32_t TRISE;
+	__vo uint32_t FLTR;
+}I2C_RegDef_t;
 /*----------------------------------------------------------------------------------------*/
 
 /*Memory Regions Base address*/
@@ -76,7 +90,7 @@ typedef struct
 #define AHB2_ADDR		0x50000000U
 
 
-/*Peripheral Region Address*/
+/*-------------- Peripheral Region Address -----------------*/
 /*UART and USART*/
 #define USART1_BASE		(APB2_ADDR + 1000)
 #define USART2_BASE		(APB1_ADDR + 4400)
@@ -85,6 +99,10 @@ typedef struct
 #define UART4_BASE		(APB1_ADDR + 4C00)
 #define UART5_BASE		(APB1_ADDR + 5000)
 
+/*I2C Base address*/
+#define I2C1_BASE		(APB1_ADDR + 5400)
+#define I2C2_BASE		(APB1_ADDR + 5800)
+#define I2C3_BASE		(APB1_ADDR + 5C00)
 
 /*RCC Address*/
 #define RCC 			((RCC_RegDef_t *)0x40023800U)
@@ -99,6 +117,11 @@ typedef struct
 #define USART6_CLK_EN()			(RCC->APB2ENR |= (1<<5))
 #define UART4_CLK_EN()			(RCC->APB1ENR)|= (1<<19)
 #define UART5_CLK_EN()			(RCC->APB1ENR)|= (1<<20)
+
+/*2. I2C Clocks*/
+#define I2C1_CLK_EN()			(RCC->APB1ENR |= (1<<21))
+#define I2C2_CLK_EN()			(RCC->APB1ENR |= (1<<22))
+#define I2C3_CLK_EN()			(RCC->APB1ENR |= (1<<23))
 /*----------------------------------------------------------------------------------------------------*/
 
 /*Includes*/
